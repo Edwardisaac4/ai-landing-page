@@ -36,12 +36,15 @@ if(companies) observer.observe(companies);
 
 const element1 = document.querySelector('.element1');
 const element2 = document.querySelector('.element2');
+const heroImage = document.querySelector('.hero-image');
 
 window.addEventListener('scroll', function(){
     let value = window.scrollY;
+    let limit = heroImage ? heroImage.clientHeight : Infinity;
+    let parallaxValue = Math.min(value, limit);
     
-    if(element1) element1.style.transform = `translateY(${value * 0.4}px)`;
-    if(element2) element2.style.transform = `translateY(${value * 0.2}px)`;
+    if(element1) element1.style.transform = `translateY(${parallaxValue * 0.4}px)`;
+    if(element2) element2.style.transform = `translateY(${parallaxValue * 0.2}px)`;
 });
 
 const heroH4 = document.querySelector('.hero h4');
@@ -81,3 +84,49 @@ if(heroH4){
 
     h4Observer.observe(heroH4);
 }
+
+const navLinks = document.querySelectorAll('header a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href && href.startsWith('#') && href.length > 1){
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if(target){
+                const headerOffset = 70;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+const featureCards = document.querySelectorAll('.feature-card');
+
+featureCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+
+        card.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+        card.style.transform = `perspective(1000px) translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease';
+        card.style.transform = '';
+    });
+});
