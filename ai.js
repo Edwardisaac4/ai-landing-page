@@ -45,6 +45,8 @@ window.addEventListener('scroll', function(){
     
     if(element1) element1.style.transform = `translateY(${parallaxValue * 0.4}px)`;
     if(element2) element2.style.transform = `translateY(${parallaxValue * 0.2}px)`;
+    if(element1) element1.style.transform = `translateY(${parallaxValue * 0.6}px)`;
+    if(element2) element2.style.transform = `translateY(${parallaxValue * 0.3}px)`;
 });
 
 const heroH4 = document.querySelector('.hero h4');

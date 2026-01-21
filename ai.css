@@ -529,6 +529,7 @@ header a:hover{
     width: 95%;
     height: 100%;
     border: 0.5px solid rgba(107, 88, 118, 0.5);
+    border-bottom: none;
 }
 
 .chatapp .left-container{
@@ -607,5 +608,538 @@ header a:hover{
     flex-direction: column;
     display: flex;
     align-items: center;
-    width: ;
+    width: 95%;
+    border: 0.5px solid rgba(107, 88, 118, 0.5);
+    border-top: none;
+    border-bottom: none;
+    padding-top: 10%;
+}
+
+.generative h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.generative p{
+    font-size: 25px;
+    color: rgb(127, 109, 135);
+    text-align: center;
+}
+
+.generative .grid-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 80px;
+    gap: 25px;
+}
+
+.generative .grid-box .grid-card{
+    position: relative;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    min-height: 350px;
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.generative .grid-box .grid-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.generative .grid-box .grid-card.grid1{
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    background: #1a1a1a;
+}
+
+/* Animated Gradient Border */
+.generative .grid-box .grid-card.grid1::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 23px;
+    background: linear-gradient(45deg, #ff00cc, #333399, #00ccff, #00ff99, #ff00cc);
+    background-size: 400%;
+    z-index: -1;
+    border: 0.5px solid rgba(255, 255, 255, 0.571);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.generative .grid-box .grid-card.grid1:hover::before {
+    opacity: 1;
+    animation: borderAnimation 3s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.generative .grid-box .grid-card.grid1 .grid1-img{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    border-radius: 20px 0 0 20px;
+}
+
+.generative .grid-box .grid-card .info{
+    position: absolute;
+    top: 20%;
+    right: 7%;
+}
+
+.generative .grid-box .grid-card.grid1 .info{
+    position: relative;
+    width: 50%;
+    padding: 40px;
+    top: auto;
+    right: auto;
+}
+
+.generative .grid-box .grid-card .info h1{
+    font-size: 50px;
+    margin: 0 0 15px 0;
+    color: white;
+}
+
+.generative .grid-box .grid-card.grid1 .info h4{
+    max-width: 450px;
+    color: lightgray;
+    line-height: 1.5;
+}
+
+.generative .grid-box .grid-card.grid1 .info p{
+    color: white;
+}
+
+.generative .grid-box .grid-card.grid1 .info p img{
+    height: 25px;
+    margin-right: 15px;
+}
+
+.generative .grid-box .grid-card.grid2{
+    position: relative;
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.generative .grid-box .grid-card.grid2::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #1a1a1a 40%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.generative .grid-box .grid-card.grid2 img{
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    opacity: 0.5;
+    transition: transform 0.5s ease;
+}
+
+.generative .grid-box .grid-card.grid2:hover img{
+    transform: scale(1.1);
+}
+
+.generative .grid-box .grid-card.grid2 h1{
+    position: relative;
+    z-index: 2;
+    font-weight: 750;
+    font-size: 50px;
+    max-width: 450px;
+    margin-bottom: 15px;
+}
+
+.generative .grid-box .grid-card.grid2 p{
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    color: lightgray;
+    font-weight: normal;
+    max-width: 400px;
+    margin: 0;
+}
+
+.generative .grid-box .grid-card.grid2 div{
+    width: 260px;
+    height: auto;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(15px);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.37));
+    z-index: 2;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    animation: float 3s ease-in-out infinite;
+}
+
+.generative .grid-box .grid-card.grid2 div h2{
+    width: 100%;
+    margin: 0;
+    font-size: 16px;
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.generative .grid-box .grid-card.grid2 div:hover{
+    animation-play-state: paused;
+}
+
+@keyframes float{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-10px);}
+    100%{transform: translateY(0);}
+}
+
+.generative .grid-box .grid-card.grid3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 500px;
+}
+
+.generative .grid-box .grid-card.grid3 .info {
+    padding: 40px;
+    z-index: 10;
+    position: relative;
+}
+
+.generative .grid-box .grid-card.grid3 .info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.generative .grid-box .grid-card.grid3 .info h4 {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 400;
+    max-width: 80%;
+}
+
+.generative .grid-box .grid-card.grid3 .info-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.generative .grid-box .grid-card.grid3 .info-icons .icon {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: floatIcons 3s ease-in-out infinite;
+}
+
+.generative .grid-box .grid-card.grid3 .info-icons .icon i {
+    font-size: 1.8rem;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.generative .grid-box .grid-card.grid3 .info-icons .icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation-play-state: paused;
+}
+
+.generative .grid-box .grid-card.grid3 .info-icons .icon:nth-child(1) { animation-delay: 0s; }
+.generative .grid-box .grid-card.grid3 .info-icons .icon:nth-child(2) { animation-delay: 0.2s; }
+.generative .grid-box .grid-card.grid3 .info-icons .icon:nth-child(3) { animation-delay: 0.4s; }
+.generative .grid-box .grid-card.grid3 .info-icons .icon:nth-child(4) { animation-delay: 0.6s; }
+.generative .grid-box .grid-card.grid3 .info-icons .icon:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes floatIcons {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.generative .grid-box .grid-card.grid3 > img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+}
+
+.generative .grid-box .grid-card.grid3:hover > img {
+    transform: scale(1.05);
+}
+
+.generative .grid-box .grid-card.grid4 {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    background: #1a1a1a;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.generative .grid-box .grid-card.grid4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.generative .grid-box .grid-card.grid4 .grid1-img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    border-radius: 20px 0 0 20px;
+    transition: transform 0.5s ease;
+}
+
+.generative .grid-box .grid-card.grid4:hover .grid1-img {
+    transform: scale(1.05);
+}
+
+.generative .grid-box .grid-card.grid4 .info {
+    position: relative;
+    width: 50%;
+    padding: 40px;
+    top: auto;
+    right: auto;
+}
+
+.generative .grid-box .grid-card.grid4 .info h1 {
+    font-size: 50px;
+    margin: 0 0 15px 0;
+    color: white;
+    background: linear-gradient(90deg, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.generative .grid-box .grid-card.grid4 .info h4 {
+    max-width: 450px;
+    color: lightgray;
+    line-height: 1.5;
+}
+
+.generative .grid-box .grid-card.grid4 .info p {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.generative .grid-box .grid-card.grid4 .info p img {
+    height: 25px;
+    margin-right: 15px;
+}
+
+.generative .grid-box .grid-card.grid4:hover .info p {
+    transform: translateX(10px);
+}
+
+.generative .grid-box .grid-card.grid4:hover .info p:nth-of-type(1) { transition-delay: 0.1s; }
+.generative .grid-box .grid-card.grid4:hover .info p:nth-of-type(2) { transition-delay: 0.2s; }
+.generative .grid-box .grid-card.grid4:hover .info p:nth-of-type(3) { transition-delay: 0.3s; }
+
+@media (max-width: 900px) {
+    .generative .grid-box {
+        grid-template-columns: 1fr;
+    }
+
+    .generative .grid-box .grid-card.grid1,
+    .generative .grid-box .grid-card.grid4 {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+
+    .generative .grid-box .grid-card.grid1 .grid1-img,
+    .generative .grid-box .grid-card.grid4 .grid1-img {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .generative .grid-box .grid-card.grid1 .info,
+    .generative .grid-box .grid-card.grid4 .info {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+.pricing{
+    width: 95%;
+    height: 2000px;
+    border: 0.5px solid rgba(107, 88, 118, 0.5);
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.pricing-img{
+    position: relative;
+    width: 85%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pricing .pricing-img img{
+    position: absolute;
+    top: 0;
+}
+
+.pricing .pricing-img img:nth-child(2){
+    height: 300px;
+}
+
+.pricing .pricing-img img:nth-child(1){
+    height: 500px;
+    margin-top: 1.5%;
+    z-index: -1;
+}
+
+.pricing .title{
+    font-size: 70px;
+    color: white;
+    text-align: center;
+}
+
+.pricing .title span{
+    background: linear-gradient(to right, #ff00cc,#1a1a1a , #333399, #00ccff, #00ff99, #ffff33, #ff9900, #ff0000, #ff00cc);
+    background-size: 200%;
+    animation: animationGradient 5s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pricing .price-box{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 30%;
+    height: 900px;
+    border: 0.5px solid rgba(107, 88, 118, 0.5);
+    border-radius: 30px;
+    padding: 30px;
+    margin-top: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing .price-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pricing .price-container{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    column-gap: 20px;
+}
+
+.pricing .price-box h1{
+    font-size: 50px;
+    color: #ffc786;
+    margin-bottom: 20px;
+}
+
+.pricing .price-box h3{
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.pricing .price-box button{
+    border: none;
+    background-color: gray;
+    color: black;
+    border-radius: 20px;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.3s ease-in;
+}
+
+.pricing .price-box button:hover{
+    background-color: white;
+}
+
+.pricing .price-box p{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: rgb(127, 109, 135);
+    max-width: 500px;
+    border-top: 0.5px solid rgba(107, 88, 118, 0.5);
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.pricing .price-box p img{
+    height: 46px;
+    margin-right: 15px;
+}
+
+.pricing .price-box:nth-child(2){
+    height: 950px;
+    margin-top: 20px;
 }
